@@ -2,5 +2,8 @@
   "dependencies": {
     "@huggingface/inference": "^4.11.0",
     "react-markdown": "^10.1.0"
+  },
+  "devDependencies": {
+    "gh-pages": "^6.3.0"
   }
 }
