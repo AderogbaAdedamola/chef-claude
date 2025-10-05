@@ -1,6 +1,6 @@
 # 👨‍🍳 Chef Clad — AI-Powered Recipe Generator
 
-Chef Clad is a **React-based web app** that uses **Artificial Intelligence** (via Hugging Face Inference API) to suggest creative recipes and dishes based on ingredients you already have.  
+Chef Clad is a React-based web app that uses Artificial Intelligence (via Hugging Face Inference API) to suggest creative recipes and dishes based on ingredients you already have.  
 
 Simply enter at least four ingredients, and the AI will suggest a meal you can prepare — complete with cooking instructions and extra ingredients if needed.  
 
