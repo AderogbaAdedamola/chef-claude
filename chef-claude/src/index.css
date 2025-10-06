@@ -69,9 +69,42 @@ ul.ingredients-list {
 
 ul.ingredients-list > li {
     color: #475467;
-    line-height: 28px;
+    line-height: 35px;
+    padding-left: 5px;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+    transition: background-color 0.3s ease;
 }
-
+ul.ingredients-list > li:hover {
+    background-color: #e0e5e9;
+}
+ul.ingredients-list > li:hover .delete-container{
+    display: flex;
+}
+.ingredients{
+    position: relative;
+}
+.ingredients .delete-container{
+    position: absolute;
+    right: 10px;
+    top: 3px;
+    width: 30px;
+    height: 30px;
+    overflow: hidden;
+    border-radius: 50%;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    transition: display 0.3s ease;
+    transition: background-color 0.3s ease;
+}
+.ingredients .delete-container:hover{
+    background-color: #cdd5db;
+}
+.ingredients span img{
+    width: 20px;
+    height: 20px;
+}
 .get-recipe-container {
     display: flex;
     justify-content: space-between;
