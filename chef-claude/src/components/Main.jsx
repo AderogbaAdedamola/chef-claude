@@ -8,8 +8,10 @@ import Loader from "./Loader"
 function Main() {
 
 
-    const [ingredients, setIngredients] = React.useState([])
-     const [recipe, setRecipe] = React.useState("")
+    const [ingredients, setIngredients] = React.useState(["chicken", "all the main spices", "corn", "heavy cream", "pasta"])
+    const [recipe, setRecipe] = React.useState("")
+    const recipeSection = React.useRef(null)
+    const [showLoader, setShowLoader] = React.useState(false)
 
      const ingredientsListItems = ingredients.map((ingredient, index) => (
         <li key={ingredient} className="ingredients">
@@ -28,14 +30,19 @@ function Main() {
     }
    
     async function getRecipe(){
-        
+        setShowLoader(true)
         let receivedRecipe = await getRecipeFromMistral(ingredients)
+        setShowLoader(false)
         setRecipe(receivedRecipe)
     }
     function deleteIngredient(indexToDelete){
             setIngredients(prev => prev.filter((_, index)=> index !== indexToDelete ))
     }
-    
+    React.useEffect(() => {
+        if(recipe !== "" && recipeSection.current !== null){
+            recipeSection.current.scrollIntoView({behavior: "smooth"})
+        }
+    },[recipe])
     
     return (
         <main>
@@ -56,6 +63,8 @@ function Main() {
                     getRecipe={getRecipe}
                     ingredientsListItems={ingredientsListItems}
                     deleteIngredient={deleteIngredient}
+                    ref={recipeSection}
+                    showLoader={showLoader}
                 />}
             {recipe &&  <ClaudeRecipe recipe={recipe}/>}
         </main>
